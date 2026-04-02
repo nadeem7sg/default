@@ -5,6 +5,7 @@ metadata:
   displayName: Local Development
   description: Developer laptop / docker-desktop / kind/minikube target for local
     validation.
+  version: 1.0.0
   tags:
     provider: onprem
     geo: local

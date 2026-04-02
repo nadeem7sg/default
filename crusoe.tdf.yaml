@@ -5,6 +5,7 @@ metadata:
   displayName: Crusoe US (logical target)
   description: Logical Crusoe Cloud target for running app containers and (optionally)
     AI endpoints.
+  version: 1.0.0
   tags:
     provider: crusoe
     geo: us

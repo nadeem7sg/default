@@ -2,6 +2,7 @@ apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
   name: taxi-data
+  version: 1.0.0
   tags:
     service: spark
     purpose: curated-dataset

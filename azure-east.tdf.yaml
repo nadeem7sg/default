@@ -9,6 +9,7 @@ metadata:
     provider: azure
     geo: us
     tier: native
+  version: 1.0.0
 target:
   provider: azure
   regions:
