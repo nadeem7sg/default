@@ -26,7 +26,7 @@ target:
     providerService: Crusoe Kubernetes
     capabilities:
       gpuTypes:
-      - <gpu-type>
+      - L40S
       supportsOIDCWorkloadIdentity: true
     defaults:
       namespace: financial-analysis
@@ -34,15 +34,15 @@ target:
     type: ml-platform
     providerService: Crusoe AI Endpoints
     endpoints:
-      openaiCompatible: https://<crusoe-ai-endpoint>/v1
+      openaiCompatible: https://${CRUSOE_AI_ENDPOINT}/v1
     capabilities:
       gpuTypes:
-      - <gpu-type>
+      - L40S
   - name: vast
     type: object-store
     providerService: VAST (S3-compatible)
     endpoints:
-      s3: https://<vast-s3-endpoint>
+      s3: https://${VAST_S3_ENDPOINT}
   - name: secrets
     type: secrets
     providerService: External Secrets / Vault
@@ -56,7 +56,7 @@ target:
     type: queue
     providerService: Kafka (Strimzi/Confluent)
     endpoints:
-      bootstrap: <crusoe-kafka-bootstrap>:9093
+      bootstrap: ${CRUSOE_KAFKA_BOOTSTRAP}:9093
     capabilities:
       supportsTLS: true
       supportsSASL: true
@@ -64,5 +64,5 @@ target:
       sla: best-effort
   infrastructure:
     clusters:
-    - name: <crusoe-cluster>
+    - name: ${CRUSOE_K8S_CLUSTER}
       service: crusoe-k8s
