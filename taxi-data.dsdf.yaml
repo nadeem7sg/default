@@ -12,8 +12,8 @@ home:
 connection:
   type: warehouse
   provider: azure-synapse-spark
-  endpoint: https://<synapse-workspace>.dev.azuresynapse.net
-  resource: <spark-pool-name>
+  endpoint: https://sherpa-synapse-ws.dev.azuresynapse.net
+  resource: ${AZURE_SYNAPSE_SPARK_POOL_NAME}
   format: delta
   notes: Curated Taxi Data produced by Synapse Spark from Downloaded Taxi Data; replicated
     to Crusoe VAST for consumption.
@@ -23,7 +23,7 @@ connection:
   stagingStore:
     type: object-store
     provider: adls-gen2
-    endpoint: abfss://<container>@<storage-account>.dfs.core.windows.net/
+    endpoint: abfss://${AZURE_STORAGE_CONTAINER}@ste2qdqwb6pvdzg.dfs.core.windows.net/
     resource: taxi-curated/
 auth:
   method: azure-managed-identity
@@ -40,8 +40,8 @@ replication:
     destination:
       type: object-store
       provider: s3
-      endpoint: https://<vast-s3-endpoint>
-      resource: s3://<vast-bucket>/taxi-curated/
+      endpoint: https://${VAST_S3_ENDPOINT}
+      resource: s3://${VAST_BUCKET}/taxi-curated/
       format: delta
     transport:
       type: kafka
