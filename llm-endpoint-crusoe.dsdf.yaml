@@ -10,8 +10,8 @@ home:
 connection:
   type: api
   provider: openai-compatible
-  endpoint: https://<crusoe-ai-endpoint>/v1
-  resource: models/<model-id>
+  endpoint: https://${CRUSOE_AI_ENDPOINT}/v1
+  resource: models/${CRUSOE_MODEL_ID}
   notes: OpenAI-compatible endpoint hosted on Crusoe (used in Endpoints-at-Crusoe
     scenario).
 auth:
