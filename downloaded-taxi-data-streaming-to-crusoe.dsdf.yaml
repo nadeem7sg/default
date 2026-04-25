@@ -10,7 +10,7 @@ home:
 connection:
   type: object-store
   provider: adls-gen2
-  endpoint: abfss://<container>@<storage-account>.dfs.core.windows.net/
+  endpoint: abfss://${AZURE_STORAGE_CONTAINER}@ste2qdqwb6pvdzg.dfs.core.windows.net/
   resource: taxi-tripdata/
   format: parquet
   notes: NYC TLC parquet files (yellow/green/fhv/fhvhv) staged under src_data and
@@ -37,8 +37,8 @@ replication:
     destination:
       type: object-store
       provider: s3
-      endpoint: https://<vast-s3-endpoint>
-      resource: s3://<vast-bucket>/taxi-tripdata/
+      endpoint: https://${VAST_S3_ENDPOINT}
+      resource: s3://${VAST_BUCKET}/taxi-tripdata/
       format: parquet
     transport:
       type: kafka
