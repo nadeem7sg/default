@@ -10,8 +10,8 @@ home:
 connection:
   type: api
   provider: openai-compatible
-  endpoint: https://<your-resource>.openai.azure.com/
-  resource: deployments/<deployment-name>
+  endpoint: https://${AZURE_OPENAI_RESOURCE}.openai.azure.com/
+  resource: deployments/gpt-4.1-mini
   notes: OpenAI-compatible endpoint used to generate Spark SQL and (optionally) narratives.
 auth:
   method: apikey
