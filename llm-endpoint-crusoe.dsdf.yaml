@@ -17,7 +17,8 @@ connection:
 auth:
   method: apikey
   secretRefs:
-  - crusoe-openai-api-key
+  - name: crusoe-openai-api-key
+    injectAs: env
 secrets:
   provider: inherit
   inheritFromWdf: true
