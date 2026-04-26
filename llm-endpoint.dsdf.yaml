@@ -16,7 +16,8 @@ connection:
 auth:
   method: apikey
   secretRefs:
-  - openai-api-key
+  - name: openai-api-key
+    injectAs: env
 secrets:
   provider: inherit
   inheritFromWdf: true
