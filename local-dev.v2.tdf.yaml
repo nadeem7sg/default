@@ -1,0 +1,37 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: local-dev
+  displayName: Local Development (v2 — adds VS Code Devcontainer support)
+  description: Developer laptop / docker-desktop / kind/minikube target for local
+    validation. v2 introduces native devcontainer integration.
+  version: 2.0.0
+  tags:
+    provider: onprem
+    geo: local
+    tier: dev
+target:
+  provider: onprem
+  regions:
+  - local
+  geography:
+    continent: na
+    country: us
+    metro: local
+  networking:
+    defaultNetworkPolicy: public
+  services:
+  - name: docker
+    type: custom
+    providerService: Docker Desktop / Podman / Devcontainer
+  - name: kind
+    type: kubernetes
+    providerService: kind/minikube
+    defaults:
+      namespace: financial-analysis
+  - name: filesystem
+    type: file-store
+    providerService: Local filesystem
+  infrastructure:
+    notes: Assumes developer supplies local .env and runs containers locally.
+      v2 also picks up vscode .devcontainer.json from the repo root.

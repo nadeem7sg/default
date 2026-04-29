@@ -1,0 +1,58 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: taxi-data
+  version: 1.0.0
+  tags:
+    service: spark
+    purpose: curated-dataset
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: warehouse
+  provider: azure-synapse-spark
+  endpoint: https://sherpa-synapse-ws.dev.azuresynapse.net
+  resource: ${AZURE_SYNAPSE_SPARK_POOL_NAME}
+  format: delta
+  notes: Curated Taxi Data produced by Synapse Spark from Downloaded Taxi Data; replicated
+    to Crusoe VAST for consumption.
+  source:
+    dsdfRef: dsdf/downloaded-taxi-data.dsdf.202602191817.yaml
+    description: Raw taxi trip parquet staged in ADLS Gen2.
+  stagingStore:
+    type: object-store
+    provider: adls-gen2
+    endpoint: abfss://${AZURE_STORAGE_CONTAINER}@ste2qdqwb6pvdzg.dfs.core.windows.net/
+    resource: taxi-curated/
+auth:
+  method: azure-managed-identity
+  secretRefs: []
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
+replication:
+  enabled: false
+  method: streaming
+  targets:
+  - tdfRef: crusoe
+    destination:
+      type: object-store
+      provider: s3
+      endpoint: https://${VAST_S3_ENDPOINT}
+      resource: s3://${VAST_BUCKET}/taxi-curated/
+      format: delta
+    transport:
+      type: kafka
+      serviceRefs:
+        source:
+          tdfRef: azure-east
+          service: kafka-bridge
+        target:
+          tdfRef: crusoe
+          service: kafka-bridge
+      topic: taxi-data.delta
+      security:
+        mode: sasl_ssl
+        authRef: kafka-credentials
