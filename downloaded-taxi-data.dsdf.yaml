@@ -1,7 +1,7 @@
 apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
-  name: downloaded-taxi-data
+  name: my-data-source
   version: 1.0.0
   tags:
     env: prod

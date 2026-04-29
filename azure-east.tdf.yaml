@@ -21,7 +21,7 @@ target:
     country: us
     zoneGroup: us-central
   networking:
-    defaultNetworkPolicy: private
+    defaultNetworkPolicy: private-only
   services:
   - name: container-apps
     type: container-platform

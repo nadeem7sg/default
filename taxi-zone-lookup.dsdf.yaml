@@ -8,7 +8,7 @@ metadata:
 home:
   tdfRef: azure-east
 connection:
-  type: object-store
+  type: object-stores
   provider: adls-gen2
   endpoint: abfss://${AZURE_STORAGE_CONTAINER}@ste2qdqwb6pvdzg.dfs.core.windows.net/
   resource: taxi-tripdata/taxi_zone_lookup.csv
