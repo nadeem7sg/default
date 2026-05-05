@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: orphan-004
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: nonexistent-target-004
+connection:
+  type: queue
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - orphan-004-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

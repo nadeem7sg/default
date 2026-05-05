@@ -1,0 +1,26 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: orphan-017
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: nonexistent-target-017
+connection:
+  type: vector-store
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+vectorIndex:
+  name: orphan-017-index
+  dims: 1536
+  metric: cosine
+auth:
+  method: apikey
+  secretRefs:
+    - orphan-017-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
