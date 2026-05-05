@@ -18,6 +18,5 @@ auth:
   secretRefs:
     - openai-api-key
 secrets:
-  provider: inherit
   inheritFromWdf: true
   secretRefs: []
