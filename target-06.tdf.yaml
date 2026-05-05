@@ -1,0 +1,19 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: target-06
+  version: "1.0.0"
+  tags:
+    provider: azure
+    geo: us
+target:
+  provider: azure
+  regions:
+    - uksouth
+  services:
+    - name: k8s
+      type: kubernetes
+    - name: store
+      type: object-store
+    - name: secret-mgr
+      type: secrets

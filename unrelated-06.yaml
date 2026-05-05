@@ -1,0 +1,7 @@
+# unrelated config #6
+apiVersion: example.com/v1
+kind: SomeOtherResource
+metadata:
+  name: unrelated-06
+data:
+  note: should be silently filtered
