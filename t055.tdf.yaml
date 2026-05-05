@@ -1,0 +1,15 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: t055
+  version: "1.0.0"
+  tags:
+    provider: azure
+    geo: us
+target:
+  provider: azure
+  regions:
+    - eastus2
+  services:
+    - name: k8s
+      type: kubernetes
