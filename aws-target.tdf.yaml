@@ -1,0 +1,20 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: aws-target
+  version: "1.0.0"
+  tags:
+    provider: aws
+    geo: us
+target:
+  provider: aws
+  regions:
+    - us-east-1
+    - us-east-2
+  services:
+    - name: k8s
+      type: kubernetes
+    - name: store
+      type: object-store
+    - name: secret-mgr
+      type: secrets

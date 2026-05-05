@@ -1,0 +1,21 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: custom-target
+  version: "1.0.0"
+  tags:
+    provider: custom
+    geo: us
+target:
+  provider: custom
+  regions:
+    - custom-region
+  services:
+    - name: k8s
+      type: kubernetes
+    - name: store
+      type: object-store
+    - name: secret-mgr
+      type: secrets
+    - name: fs
+      type: file-store

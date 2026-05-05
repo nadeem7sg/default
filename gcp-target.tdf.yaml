@@ -1,0 +1,20 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: gcp-target
+  version: "1.0.0"
+  tags:
+    provider: gcp
+    geo: us
+target:
+  provider: gcp
+  regions:
+    - us-central1
+    - us-east1
+  services:
+    - name: k8s
+      type: kubernetes
+    - name: store
+      type: object-store
+    - name: secret-mgr
+      type: secrets
