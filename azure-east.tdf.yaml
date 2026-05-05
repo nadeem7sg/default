@@ -22,7 +22,7 @@ target:
     defaultNetworkPolicy: private
   services:
     - name: aks
-      type: kubernetes
+      type: k8s-cluster
       providerService: AKS
       defaults:
         namespace: financial-analysis
