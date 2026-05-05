@@ -10,7 +10,6 @@ metadata:
     geo: us
     tier: native
 target:
-  provider: azure
   regions:
     - eastus
     - eastus2
