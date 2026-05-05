@@ -12,7 +12,6 @@ connection:
   provider: openai-compatible
   endpoint: https://sherpa.openai.azure.com/
   resource: deployments/gpt-4.1-mini
-  notes: OpenAI-compatible endpoint used to generate Spark SQL.
 auth:
   method: apikey
   secretRefs:
@@ -20,4 +19,3 @@ auth:
 secrets:
   provider: inherit
   inheritFromWdf: true
-  secretRefs: []
