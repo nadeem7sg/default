@@ -1,0 +1,48 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: azure-omni
+  version: "1.0.0"
+  tags:
+    provider: azure
+    geo: us
+target:
+  provider: azure
+  regions:
+    - eastus
+    - eastus2
+  services:
+    - name: svc-kubernetes
+      type: kubernetes
+    - name: svc-serverless
+      type: serverless
+    - name: svc-spark
+      type: spark
+    - name: svc-mlplatform
+      type: ml-platform
+    - name: svc-objectstore
+      type: object-store
+    - name: svc-filestore
+      type: file-store
+    - name: svc-database
+      type: database
+    - name: svc-vectorstore
+      type: vector-store
+    - name: svc-queue
+      type: queue
+    - name: svc-observability
+      type: observability
+    - name: svc-secrets
+      type: secrets
+    - name: svc-identity
+      type: identity
+    - name: svc-network
+      type: network
+    - name: svc-custom
+      type: custom
+    - name: svc-containerapps
+      type: container-apps
+    - name: svc-containerplatform
+      type: container-platform
+    - name: svc-containerregistry
+      type: container-registry
