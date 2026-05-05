@@ -1,5 +1,5 @@
 apiVersion: dsdf.7sg.ai/v1
-kind: DataSourceDefinition
+kind: DataSource
 metadata:
   name: llm-endpoint
   version: "1.0.0"
