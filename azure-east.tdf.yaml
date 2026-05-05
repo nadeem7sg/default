@@ -1,5 +1,4 @@
 apiVersion: tdf.7sg.ai/v1
-kind: TargetDefinition
 metadata:
   name: azure-east
   version: "1.0.0"
