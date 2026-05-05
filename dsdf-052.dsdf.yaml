@@ -1,0 +1,26 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: dsdf-052
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: vector-store
+  provider: provider-2
+  endpoint: https://example.com
+  resource: example-resource
+vectorIndex:
+  name: dsdf-052-index
+  dims: 1536
+  metric: cosine
+auth:
+  method: apikey
+  secretRefs:
+    - dsdf-052-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

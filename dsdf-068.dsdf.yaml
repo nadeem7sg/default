@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: dsdf-068
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: api
+  provider: provider-3
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - dsdf-068-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
