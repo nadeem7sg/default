@@ -9,35 +9,3 @@ metadata:
     provider: azure
     geo: us
     tier: native
-target:
-  provider: azure
-  regions:
-    - eastus
-    - eastus2
-  geography:
-    continent: na
-    country: us
-    zoneGroup: us-central
-  networking:
-    defaultNetworkPolicy: private
-  services:
-    - name: aks
-      type: kubernetes
-      providerService: AKS
-      defaults:
-        namespace: financial-analysis
-    - name: synapse
-      type: spark
-      providerService: Azure Synapse Spark
-    - name: adls
-      type: object-store
-      providerService: ADLS Gen2
-    - name: keyvault
-      type: secrets
-      providerService: Azure Key Vault
-    - name: managed-identity
-      type: identity
-      providerService: Managed Identity
-    - name: observability
-      type: observability
-      providerService: Azure Monitor / Log Analytics
