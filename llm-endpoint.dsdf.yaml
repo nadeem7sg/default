@@ -8,7 +8,7 @@ metadata:
 home:
   tdfRef: azure-east
 connection:
-  type: api
+  type: blob-store
   provider: openai-compatible
   endpoint: https://sherpa.openai.azure.com/
   resource: deployments/gpt-4.1-mini
