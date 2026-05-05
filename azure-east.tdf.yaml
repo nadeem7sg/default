@@ -10,10 +10,9 @@ metadata:
     geo: us
     tier: native
 target:
-  provider: azure
+  provider: gcp
   regions:
-    - eastus
-    - eastus2
+    - us-fake-1
   geography:
     continent: na
     country: us
