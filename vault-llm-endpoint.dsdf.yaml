@@ -1,0 +1,27 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: vault-llm-endpoint
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: api
+  provider: openai-compatible
+  endpoint: https://sherpa.openai.azure.com/
+  resource: deployments/gpt-4.1-mini
+auth:
+  method: apikey
+  secretRefs:
+    - openai-api-key
+secrets:
+  provider: vault
+  secretRefs:
+    - name: openai-api-key
+      injectAs: env
+      envVar: OPENAI_API_KEY
+    - name: openai-org-id
+      injectAs: file
+      filePath: /etc/secrets/openai-org-id
