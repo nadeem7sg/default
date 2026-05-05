@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: vector-store-broken
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: vector-store
+  provider: pinecone
+  endpoint: https://example-pinecone.io
+  resource: indexes/financial-analysis
+auth:
+  method: apikey
+  secretRefs:
+    - pinecone-api-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
