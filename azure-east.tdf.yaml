@@ -10,10 +10,9 @@ metadata:
     geo: us
     tier: native
 target:
-  provider: azure
+  provider: oracle-cloud
   regions:
-    - eastus
-    - eastus2
+    - us-ashburn-1
   geography:
     continent: na
     country: us
