@@ -9,7 +9,6 @@ home:
   tdfRef: azure-east
 connection:
   type: api
-  provider: openai-compatible
   endpoint: https://sherpa.openai.azure.com/
   resource: deployments/gpt-4.1-mini
   notes: OpenAI-compatible endpoint used to generate Spark SQL.
