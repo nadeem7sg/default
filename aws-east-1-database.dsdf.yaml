@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: aws-east-1-database-011
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: aws-east-1
+connection:
+  type: database
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - aws-east-1-database-011-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

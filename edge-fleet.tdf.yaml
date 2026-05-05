@@ -1,15 +1,15 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: local-dev
+  name: edge-fleet
   version: "1.0.0"
   tags:
-    provider: onprem
+    provider: edge
     geo: us
 target:
-  provider: onprem
+  provider: edge
   regions:
-    - local
+    - edge-zone-1
   services:
     - name: k8s
       type: kubernetes

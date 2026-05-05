@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: azure-east-1-database-001
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east-1
+connection:
+  type: database
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - azure-east-1-database-001-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

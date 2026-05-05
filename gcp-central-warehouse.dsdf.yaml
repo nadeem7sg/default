@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: gcp-central-warehouse-022
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: gcp-central
+connection:
+  type: warehouse
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - gcp-central-warehouse-022-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

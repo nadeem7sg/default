@@ -1,22 +1,21 @@
 apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
-  name: llm-endpoint
+  name: aws-east-1-object-store-010
   version: "1.0.0"
   tags:
     env: prod
 home:
-  tdfRef: azure-east
+  tdfRef: aws-east-1
 connection:
-  type: api
+  type: object-store
   provider: openai-compatible
-  endpoint: https://sherpa.openai.azure.com/
-  resource: deployments/gpt-4.1-mini
-  notes: OpenAI-compatible endpoint used to generate Spark SQL.
+  endpoint: https://example.com
+  resource: example-resource
 auth:
   method: apikey
   secretRefs:
-    - openai-api-key
+    - aws-east-1-object-store-010-key
 secrets:
   provider: inherit
   inheritFromWdf: true

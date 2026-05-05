@@ -1,0 +1,26 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: gcp-eu-vector-store-028
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: gcp-eu
+connection:
+  type: vector-store
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+vectorIndex:
+  name: gcp-eu-vector-store-028-index
+  dims: 1536
+  metric: cosine
+auth:
+  method: apikey
+  secretRefs:
+    - gcp-eu-vector-store-028-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

@@ -1,15 +1,16 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: local-dev
+  name: aws-west-1
   version: "1.0.0"
   tags:
-    provider: onprem
+    provider: aws
     geo: us
 target:
-  provider: onprem
+  provider: aws
   regions:
-    - local
+    - us-west-1
+    - us-west-2
   services:
     - name: k8s
       type: kubernetes

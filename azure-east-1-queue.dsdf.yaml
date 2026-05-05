@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: azure-east-1-queue-004
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east-1
+connection:
+  type: queue
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - azure-east-1-queue-004-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

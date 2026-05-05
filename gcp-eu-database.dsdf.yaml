@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: gcp-eu-database-026
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: gcp-eu
+connection:
+  type: database
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - gcp-eu-database-026-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

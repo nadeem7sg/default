@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: azure-west-1-object-store-005
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-west-1
+connection:
+  type: object-store
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - azure-west-1-object-store-005-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

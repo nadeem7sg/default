@@ -1,15 +1,16 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: local-dev
+  name: azure-east-1
   version: "1.0.0"
   tags:
-    provider: onprem
+    provider: azure
     geo: us
 target:
-  provider: onprem
+  provider: azure
   regions:
-    - local
+    - eastus
+    - eastus2
   services:
     - name: k8s
       type: kubernetes

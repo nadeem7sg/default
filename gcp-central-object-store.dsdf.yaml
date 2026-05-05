@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: gcp-central-object-store-020
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: gcp-central
+connection:
+  type: object-store
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - gcp-central-object-store-020-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []

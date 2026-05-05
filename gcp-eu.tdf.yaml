@@ -1,15 +1,15 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: local-dev
+  name: gcp-eu
   version: "1.0.0"
   tags:
-    provider: onprem
+    provider: gcp
     geo: us
 target:
-  provider: onprem
+  provider: gcp
   regions:
-    - local
+    - europe-west1
   services:
     - name: k8s
       type: kubernetes
