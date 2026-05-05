@@ -6,7 +6,7 @@ metadata:
   tags:
     env: prod
 home:
-  tdfRef: azure-east
+  tdfRef: TODO
 connection:
   type: api
   provider: openai-compatible

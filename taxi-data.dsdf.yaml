@@ -8,7 +8,7 @@ metadata:
     purpose: curated-dataset
     env: prod
 home:
-  tdfRef: azure-east
+  tdfRef: TODO
 connection:
   type: warehouse
   provider: azure-synapse-spark
