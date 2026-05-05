@@ -11,8 +11,10 @@ happy path; every other branch is a single, targeted mutation off of it.
 - 14 positive variants (multi-cloud, multi-connection, edge providers, etc.)
 - 7 structural / intake-level branches (empty, only-WDF, multi-doc, etc.)
 - 4 false-positive / false-negative branches (look broken but pass, or vice versa)
+- 16 `stress-*` branches (scale tests: many files, deep nesting, duplicates, etc.)
 
-Total: **93 branches**, each verifiably hitting exactly one rule.
+Total: **109 branches**, each verifiably hitting exactly one rule (or one
+scaling axis for `stress-*`).
 
 ## Pipeline gate map
 
@@ -176,6 +178,30 @@ default_repo_preflight                   <- registration-level (branch / PAT)
 |---|---|
 | `nested-subdirectory` | TDF/DSDF under `tdfs/` and `dsdfs/` subfolders |
 | `yml-extension` | files use `.yml` instead of `.yaml` |
+
+## Stress tests (`stress-*`)
+
+Each branch tests a different scaling axis. All files inside are
+schema-valid unless the branch explicitly mixes failures.
+
+| Branch | Files | What it stresses |
+|---|---|---|
+| `stress-50-tdfs` | 50 TDFs | per-file validator fanout |
+| `stress-100-dsdfs` | 1 TDF + 100 DSDFs | cross-ref breadth, all DSDFs → same TDF |
+| `stress-20-tdfs-100-dsdfs` | 20 TDFs + 100 DSDFs | full reference matrix (5 DSDFs per TDF) |
+| `stress-200-files-flat` | 200 small TDFs at root | intake / `github_list_files_recursive` throughput |
+| `stress-realistic-50-workload` | 8 TDFs + 40 DSDFs | realistic large-org shape (multi-cloud) |
+| `stress-many-versions-same-name` | 20 versions of one name | NFS version-table writes (`v1.0.0`..`v1.0.19`) |
+| `stress-duplicate-names` | 30 identical (name, version) | writeback `duplicate_count` dedup |
+| `stress-orphan-tdfrefs` | 1 TDF + 50 orphan DSDFs | cross-ref **failure** breadth (50 rejected) |
+| `stress-large-tdf-many-regions` | 1 TDF, 30 Azure regions | cloud_check region matrix |
+| `stress-large-tdf-all-service-types` | 1 TDF, 17 services | full service-type enum coverage |
+| `stress-huge-single-yaml` | 1 TDF, 40 svcs × 8 regions | yaml-parser memory + large-doc reporting |
+| `stress-deeply-nested` | files at 4 levels deep | recursive intake walk |
+| `stress-all-providers` | 6 TDFs (azure, aws, gcp, onprem, edge, custom) | provider enum coverage |
+| `stress-all-connection-types` | 1 TDF + 7 DSDFs | every `connection.type` value |
+| `stress-mixed-50-50` | 50 valid + 50 invalid TDFs | mixed-status writeback at scale (5 distinct error types rotate) |
+| `stress-mixed-kinds` | 11 TDFs + 10 DSDFs + 10 unrelated YAMLs | intake filter — non-TDF/DSDF YAMLs silently dropped |
 
 ## False positive / false negative
 
