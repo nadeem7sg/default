@@ -1,0 +1,21 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: events-bus
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: queue
+  provider: azure-event-hubs
+  endpoint: events-bus.servicebus.windows.net
+  resource: financial-events
+auth:
+  method: azure-managed-identity
+  secretRefs: []
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
