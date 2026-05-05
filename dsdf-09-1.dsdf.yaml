@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: dsdf-09-1
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: target-09
+connection:
+  type: queue
+  provider: openai-compatible
+  endpoint: https://example.com
+  resource: example-resource
+auth:
+  method: apikey
+  secretRefs:
+    - dsdf-09-1-key
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
