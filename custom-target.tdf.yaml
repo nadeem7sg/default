@@ -1,16 +1,16 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: local-dev
+  name: custom-target
   version: "1.0.0"
   displayName: Local Development
   description: Developer laptop / docker-desktop / kind/minikube target for local validation.
   tags:
-    provider: onprem
+    provider: custom
     geo: local
     tier: dev
 target:
-  provider: onprem
+  provider: custom
   regions:
     - local
   networking:
