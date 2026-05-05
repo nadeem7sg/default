@@ -2,7 +2,7 @@ apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
   name: llm-endpoint
-  version: "1.0.0"
+  version: "1.0"
   tags:
     env: prod
 home:
