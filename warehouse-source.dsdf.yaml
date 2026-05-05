@@ -1,23 +1,21 @@
 apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
-  name: taxi-data
+  name: warehouse-source
   version: "1.0.0"
   tags:
-    service: spark
-    purpose: curated-dataset
     env: prod
 home:
   tdfRef: azure-east
 connection:
   type: warehouse
   provider: azure-synapse-spark
-  endpoint: https://sherpa-synapse-ws.dev.azuresynapse.net
-  resource: financial-analysis-pool
-  format: delta
+  endpoint: https://example.com
+  resource: example-resource
 auth:
-  method: azure-managed-identity
-  secretRefs: []
+  method: apikey
+  secretRefs:
+    - warehouse-source-key
 secrets:
   provider: inherit
   inheritFromWdf: true
