@@ -5,10 +5,6 @@ metadata:
   version: "1.0.0"
   displayName: Azure East (logical target)
   description: Azure target spanning eastus/eastus2 used by Financial Analysis workloads.
-  tags:
-    provider: azure
-    geo: us
-    tier: native
 target:
   provider: azure
   regions:
