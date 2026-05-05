@@ -10,10 +10,9 @@ metadata:
     geo: us
     tier: native
 target:
-  provider: azure
+  provider: aws
   regions:
-    - eastus
-    - eastus2
+    - us-east-99
   geography:
     continent: na
     country: us
