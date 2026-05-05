@@ -41,3 +41,8 @@ target:
     - name: observability
       type: observability
       providerService: Azure Monitor / Log Analytics
+targetz:
+  provider: azure
+  regions:
+    - eastus
+  extraNote: "this typo'd block is silently accepted by the schema"
