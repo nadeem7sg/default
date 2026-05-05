@@ -18,6 +18,6 @@ auth:
   secretRefs:
     - openai-api-key
 secrets:
-  provider: inherit
+  provider: bitwarden
   inheritFromWdf: true
   secretRefs: []
