@@ -1,0 +1,21 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: shared-fs
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: local-dev
+connection:
+  type: filesystem
+  provider: local-disk
+  endpoint: file:///mnt/shared
+  resource: /mnt/shared/financial-data
+auth:
+  method: none
+  secretRefs: []
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
