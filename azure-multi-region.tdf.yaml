@@ -1,7 +1,7 @@
 apiVersion: tdf.7sg.ai/v1
 kind: TargetDefinition
 metadata:
-  name: azure-east
+  name: azure-multi-region
   version: "1.0.0"
   displayName: Azure East (logical target)
   description: Azure target spanning eastus/eastus2 used by Financial Analysis workloads.
@@ -14,6 +14,9 @@ target:
   regions:
     - eastus
     - eastus2
+    - northcentralus
+    - southcentralus
+    - westus2
   geography:
     continent: na
     country: us
