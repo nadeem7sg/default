@@ -2,7 +2,7 @@ apiVersion: dsdf.7sg.ai/v1
 kind: DataSourceDefinition
 metadata:
   name: llm-endpoint
-  version: 1.0.0
+  version: "1.0.0"
   tags:
     env: prod
 home:
@@ -10,14 +10,13 @@ home:
 connection:
   type: api
   provider: openai-compatible
-  endpoint: https://${AZURE_OPENAI_RESOURCE}.openai.azure.com/
+  endpoint: https://sherpa.openai.azure.com/
   resource: deployments/gpt-4.1-mini
-  notes: OpenAI-compatible endpoint used to generate Spark SQL and (optionally) narratives.
+  notes: OpenAI-compatible endpoint used to generate Spark SQL.
 auth:
   method: apikey
   secretRefs:
-  - name: openai-api-key
-    injectAs: env
+    - openai-api-key
 secrets:
   provider: inherit
   inheritFromWdf: true
