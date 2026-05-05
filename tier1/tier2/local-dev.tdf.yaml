@@ -1,0 +1,19 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: local-dev
+  version: "1.0.0"
+  tags:
+    provider: onprem
+    geo: us
+target:
+  provider: onprem
+  regions:
+    - local
+  services:
+    - name: fs
+      type: file-store
+    - name: k8s
+      type: kubernetes
+    - name: id
+      type: identity
