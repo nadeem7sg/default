@@ -1,0 +1,140 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: azure-mega
+  version: "1.0.0"
+  tags:
+    provider: azure
+    geo: us
+target:
+  provider: azure
+  regions:
+    - eastus
+    - eastus2
+    - northcentralus
+    - westus2
+    - westeurope
+    - northeurope
+    - uksouth
+    - japaneast
+  services:
+    - name: svc-00
+      type: kubernetes
+      providerService: provider-00
+    - name: svc-01
+      type: serverless
+      providerService: provider-01
+    - name: svc-02
+      type: spark
+      providerService: provider-02
+    - name: svc-03
+      type: ml-platform
+      providerService: provider-03
+    - name: svc-04
+      type: object-store
+      providerService: provider-04
+    - name: svc-05
+      type: file-store
+      providerService: provider-05
+    - name: svc-06
+      type: database
+      providerService: provider-06
+    - name: svc-07
+      type: vector-store
+      providerService: provider-07
+    - name: svc-08
+      type: queue
+      providerService: provider-08
+    - name: svc-09
+      type: observability
+      providerService: provider-09
+    - name: svc-10
+      type: secrets
+      providerService: provider-10
+    - name: svc-11
+      type: identity
+      providerService: provider-11
+    - name: svc-12
+      type: network
+      providerService: provider-12
+    - name: svc-13
+      type: custom
+      providerService: provider-13
+    - name: svc-14
+      type: container-apps
+      providerService: provider-14
+    - name: svc-15
+      type: container-platform
+      providerService: provider-15
+    - name: svc-16
+      type: container-registry
+      providerService: provider-16
+    - name: svc-17
+      type: kubernetes
+      providerService: provider-17
+    - name: svc-18
+      type: serverless
+      providerService: provider-18
+    - name: svc-19
+      type: spark
+      providerService: provider-19
+    - name: svc-20
+      type: ml-platform
+      providerService: provider-20
+    - name: svc-21
+      type: object-store
+      providerService: provider-21
+    - name: svc-22
+      type: file-store
+      providerService: provider-22
+    - name: svc-23
+      type: database
+      providerService: provider-23
+    - name: svc-24
+      type: vector-store
+      providerService: provider-24
+    - name: svc-25
+      type: queue
+      providerService: provider-25
+    - name: svc-26
+      type: observability
+      providerService: provider-26
+    - name: svc-27
+      type: secrets
+      providerService: provider-27
+    - name: svc-28
+      type: identity
+      providerService: provider-28
+    - name: svc-29
+      type: network
+      providerService: provider-29
+    - name: svc-30
+      type: custom
+      providerService: provider-30
+    - name: svc-31
+      type: container-apps
+      providerService: provider-31
+    - name: svc-32
+      type: container-platform
+      providerService: provider-32
+    - name: svc-33
+      type: container-registry
+      providerService: provider-33
+    - name: svc-34
+      type: kubernetes
+      providerService: provider-34
+    - name: svc-35
+      type: serverless
+      providerService: provider-35
+    - name: svc-36
+      type: spark
+      providerService: provider-36
+    - name: svc-37
+      type: ml-platform
+      providerService: provider-37
+    - name: svc-38
+      type: object-store
+      providerService: provider-38
+    - name: svc-39
+      type: file-store
+      providerService: provider-39
