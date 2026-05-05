@@ -1,0 +1,37 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: aws-east
+  version: "1.0.0"
+  displayName: AWS US East 1
+  description: AWS native target spanning us-east-1.
+  tags:
+    provider: aws
+    geo: us
+    tier: native
+target:
+  provider: aws
+  regions:
+    - us-east-1
+    - us-east-2
+  geography:
+    continent: na
+    country: us
+  networking:
+    defaultNetworkPolicy: private
+  services:
+    - name: eks
+      type: kubernetes
+      providerService: Amazon EKS
+    - name: s3
+      type: object-store
+      providerService: Amazon S3
+    - name: emr
+      type: spark
+      providerService: Amazon EMR
+    - name: secretsmanager
+      type: secrets
+      providerService: AWS Secrets Manager
+    - name: iam
+      type: identity
+      providerService: AWS IAM
