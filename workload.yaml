@@ -1,0 +1,7 @@
+apiVersion: wdf.7sg.ai/v1
+kind: WorkloadDefinition
+metadata:
+  name: no-tdf-or-dsdf-here
+  version: "1.0.0"
+  tags:
+    env: prod
