@@ -14,7 +14,7 @@ connection:
   resource: deployments/gpt-4.1-mini
   notes: OpenAI-compatible endpoint used to generate Spark SQL.
 auth:
-  method: apikey
+  method: ssh
   secretRefs:
     - openai-api-key
 secrets:
