@@ -4,7 +4,7 @@ metadata:
   name: llm-endpoint
   version: "1.0.0"
   tags:
-    env: prod
+    env: production
 home:
   tdfRef: azure-east
 connection:
