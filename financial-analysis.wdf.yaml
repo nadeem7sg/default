@@ -1,0 +1,32 @@
+apiVersion: wdf.7sg.ai/v1
+kind: WorkloadDefinition
+metadata:
+  name: financial-analysis
+  version: "1.0.0"
+  tags:
+    env: prod
+workload:
+  type: container
+  source:
+    git:
+      repoUrl: https://github.com/example/repo
+      ref: main
+  runtime:
+    platform: container-apps
+    regions:
+      - eastus2
+    image:
+      repository: example/financial-analysis
+      tag: "1.0.0"
+    resources:
+      cpu: "1"
+      memory: "2Gi"
+    autoscaling:
+      minReplicas: 1
+      maxReplicas: 3
+secrets:
+  provider: inherit
+  secretRefs:
+    - name: openai-api-key
+      injectAs: env
+      envVar: OPENAI_API_KEY
