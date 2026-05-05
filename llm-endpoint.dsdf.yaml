@@ -21,3 +21,6 @@ secrets:
   provider: inherit
   inheritFromWdf: true
   secretRefs: []
+connectionz:
+  type: api
+  note: "typo'd; schema accepts because root has no additionalProperties:false"
