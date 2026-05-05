@@ -12,8 +12,7 @@ metadata:
 target:
   provider: azure
   regions:
-    - eastus
-    - eastus2
+    - us-east-99
   geography:
     continent: na
     country: us
