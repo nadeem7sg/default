@@ -1,0 +1,22 @@
+apiVersion: dsdf.7sg.ai/v1
+kind: DataSourceDefinition
+metadata:
+  name: bronze-bucket
+  version: "1.0.0"
+  tags:
+    env: prod
+home:
+  tdfRef: azure-east
+connection:
+  type: object-store
+  provider: adls-gen2
+  endpoint: https://sherpa.dfs.core.windows.net
+  resource: bronze/
+  format: parquet
+auth:
+  method: azure-managed-identity
+  secretRefs: []
+secrets:
+  provider: inherit
+  inheritFromWdf: true
+  secretRefs: []
