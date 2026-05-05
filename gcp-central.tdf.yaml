@@ -1,0 +1,37 @@
+apiVersion: tdf.7sg.ai/v1
+kind: TargetDefinition
+metadata:
+  name: gcp-central
+  version: "1.0.0"
+  displayName: GCP US Central 1
+  description: GCP native target spanning us-central1.
+  tags:
+    provider: gcp
+    geo: us
+    tier: native
+target:
+  provider: gcp
+  regions:
+    - us-central1
+    - us-east1
+  geography:
+    continent: na
+    country: us
+  networking:
+    defaultNetworkPolicy: private
+  services:
+    - name: gke
+      type: kubernetes
+      providerService: Google Kubernetes Engine
+    - name: gcs
+      type: object-store
+      providerService: Google Cloud Storage
+    - name: dataproc
+      type: spark
+      providerService: Cloud Dataproc
+    - name: secretmanager
+      type: secrets
+      providerService: Google Secret Manager
+    - name: iam
+      type: identity
+      providerService: Google IAM
