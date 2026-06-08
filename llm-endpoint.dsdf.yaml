@@ -9,15 +9,20 @@ home:
   tdfRef: azure-east
 connection:
   type: api
-  provider: openai-compatible
-  endpoint: https://sherpa.openai.azure.com/
+  provider: azure-openai
+  endpoint: https://example-openai.openai.azure.com/
   resource: deployments/gpt-4.1-mini
-  notes: OpenAI-compatible endpoint used to generate Spark SQL.
 auth:
   method: apikey
   secretRefs:
-    - openai-api-key
+    - azure-openai-api-key
 secrets:
-  provider: inherit
-  inheritFromWdf: true
-  secretRefs: []
+  provider: azureKeyVault
+  inheritFromWdf: false
+  secretRefs:
+    - name: azure-openai-api-key
+      injectAs: env
+      envVar: AZURE_OPENAI_API_KEY
+      externalRef:
+        provider: azure-keyvault
+        key: azure-openai-api-key

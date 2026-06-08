@@ -4,21 +4,31 @@ metadata:
   name: taxi-data
   version: "1.0.0"
   tags:
-    service: spark
-    purpose: curated-dataset
     env: prod
 home:
   tdfRef: azure-east
 connection:
   type: warehouse
   provider: azure-synapse-spark
-  endpoint: https://sherpa-synapse-ws.dev.azuresynapse.net
+  endpoint: https://example-synapse.dev.azuresynapse.net
   resource: financial-analysis-pool
   format: delta
 auth:
   method: azure-managed-identity
   secretRefs: []
 secrets:
-  provider: inherit
-  inheritFromWdf: true
-  secretRefs: []
+  provider: azureKeyVault
+  inheritFromWdf: false
+  secretRefs:
+    - name: azure-synapse-workspace-name
+      injectAs: env
+      envVar: AZURE_SYNAPSE_WORKSPACE_NAME
+      externalRef:
+        provider: azure-keyvault
+        key: azure-synapse-workspace-name
+    - name: azure-synapse-spark-pool-name
+      injectAs: env
+      envVar: AZURE_SYNAPSE_SPARK_POOL_NAME
+      externalRef:
+        provider: azure-keyvault
+        key: azure-synapse-spark-pool-name

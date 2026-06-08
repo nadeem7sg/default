@@ -3,41 +3,41 @@ kind: TargetDefinition
 metadata:
   name: azure-east
   version: "1.0.0"
-  displayName: Azure East (logical target)
-  description: Azure target spanning eastus/eastus2 used by Financial Analysis workloads.
+  displayName: Azure East Happy Path
+  description: Logical Azure target for financial-analysis happy-path ingest testing.
   tags:
     provider: azure
     geo: us
-    tier: native
+    tier: ingest-happy-path
 target:
   provider: azure
   regions:
-    - eastus
     - eastus2
   geography:
     continent: na
     country: us
-    zoneGroup: us-central
+    zoneGroup: us-east
   networking:
     defaultNetworkPolicy: private
   services:
-    - name: aks
-      type: kubernetes
-      providerService: AKS
+    - name: container-apps
+      type: container-apps
+      providerService: Azure Container Apps
       defaults:
+        resourceGroup: financial-analysis-rg-source
         namespace: financial-analysis
+    - name: container-registry
+      type: container-registry
+      providerService: Azure Container Registry
     - name: synapse
       type: spark
       providerService: Azure Synapse Spark
     - name: adls
       type: object-store
-      providerService: ADLS Gen2
+      providerService: Azure Data Lake Storage Gen2
     - name: keyvault
       type: secrets
       providerService: Azure Key Vault
-    - name: managed-identity
-      type: identity
-      providerService: Managed Identity
-    - name: observability
+    - name: monitor
       type: observability
-      providerService: Azure Monitor / Log Analytics
+      providerService: Azure Monitor
