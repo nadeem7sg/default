@@ -10,7 +10,6 @@ home:
 connection:
   type: api
   provider: azure-openai
-  endpoint: https://example-openai.openai.azure.com/
   resource: deployments/gpt-4.1-mini
 auth:
   method: apikey
@@ -26,3 +25,9 @@ secrets:
       externalRef:
         provider: azure-keyvault
         key: azure-openai-api-key
+    - name: azure-openai-endpoint
+      injectAs: env
+      envVar: AZURE_OPENAI_ENDPOINT
+      externalRef:
+        provider: azure-keyvault
+        key: azure-openai-endpoint

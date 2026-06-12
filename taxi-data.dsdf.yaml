@@ -10,7 +10,6 @@ home:
 connection:
   type: warehouse
   provider: azure-synapse-spark
-  endpoint: https://example-synapse.dev.azuresynapse.net
   resource: financial-analysis-pool
   format: delta
 auth:
@@ -20,15 +19,15 @@ secrets:
   provider: azureKeyVault
   inheritFromWdf: false
   secretRefs:
-    - name: azure-synapse-workspace-name
+    - name: synapse-workspace-name
       injectAs: env
-      envVar: AZURE_SYNAPSE_WORKSPACE_NAME
+      envVar: SYNAPSE_WORKSPACE_NAME
       externalRef:
         provider: azure-keyvault
-        key: azure-synapse-workspace-name
-    - name: azure-synapse-spark-pool-name
+        key: synapse-workspace-name
+    - name: synapse-spark-pool-name
       injectAs: env
-      envVar: AZURE_SYNAPSE_SPARK_POOL_NAME
+      envVar: SYNAPSE_SPARK_POOL_NAME
       externalRef:
         provider: azure-keyvault
-        key: azure-synapse-spark-pool-name
+        key: synapse-spark-pool-name

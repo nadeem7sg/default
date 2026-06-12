@@ -24,11 +24,14 @@ target:
       type: container-apps
       providerService: Azure Container Apps
       defaults:
-        resourceGroup: financial-analysis-rg-source
+        resourceGroup: rg-financial-analysis
         namespace: financial-analysis
     - name: container-registry
       type: container-registry
       providerService: Azure Container Registry
+      defaults:
+        resourceGroup: rg-financial-analysis
+        account: uvfinancialsourceacr
     - name: synapse
       type: spark
       providerService: Azure Synapse Spark
