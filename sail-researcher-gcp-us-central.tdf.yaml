@@ -28,7 +28,6 @@ target:
       type: serverless
       providerService: Cloud Run
       defaults:
-        project: <gcp-project-id>
         namespace: default
       capabilities:
         supportsOIDCWorkloadIdentity: true
@@ -62,8 +61,6 @@ target:
     - name: artifact-registry
       type: custom
       providerService: Artifact Registry
-      defaults:
-        project: <gcp-project-id>
       endpoints:
         registry: us-central1-docker.pkg.dev
     - name: cloud-logging
@@ -82,3 +79,17 @@ target:
     secretStores:
       - name: gcp-secret-manager
         service: secret-manager
+  credentialProfiles:
+    - name: gcp
+      source: internal_vault
+      required: true
+      kind: service_account
+      ref: gcp-sa-key-json
+      fields:
+        project: gcp-secret-manager-project-id
+    - name: gcp-registry
+      source: internal_vault
+      required: false
+      purpose: registry
+      kind: service_account
+      ref: gcp-sa-key-json
