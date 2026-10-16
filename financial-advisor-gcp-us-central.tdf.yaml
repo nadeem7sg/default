@@ -70,3 +70,17 @@ target:
     secretStores:
       - name: gcp-secret-manager
         service: secret-manager
+  credentialProfiles:
+    - name: gcp
+      source: internal_vault
+      required: true
+      kind: service_account
+      ref: gcp-deploy-sa
+      fields:
+        project: gcp-secret-manager-project-id
+    - name: gcp-registry
+      source: internal_vault
+      required: false
+      purpose: registry
+      kind: service_account
+      ref: gcp-deploy-sa
